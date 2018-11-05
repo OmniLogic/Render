@@ -36,7 +36,7 @@ class App extends React.Component {
 Express example:
 
 ```
-import { OmnilogicClient, OmnilogicProvider, ShowcaseContainer } from '../dist';
+import { OmnilogicClient, OmnilogicProvider, ShowcaseContainer } from 'omnilogic-render';
 
 require('dotenv').config({ path: path.join(__dirname, '.env') });
 
