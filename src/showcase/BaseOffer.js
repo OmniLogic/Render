@@ -7,7 +7,7 @@ const deepEqual = require('deep-equal');
 const jsont = require('jsont')();
 
 jsont.use('currency', (input, separator, next) => {
-  next(null, input.toString().replace('.', separator));
+  next(null, input.toLocaleString('pt-BR'));
 });
 
 jsont.use('split', function(input, separator, next) {
