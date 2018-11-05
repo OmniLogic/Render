@@ -1,11 +1,10 @@
 {
   "vendor": "omnilogic",
   "name": "omnilogic-render",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "title": "Omnilogic Render",
   "description": "Omnilogic Render",
   "main": "dist/index.js",
-  "module": "src/index.js",
   "mustUpdateAt": "2017-09-05",
   "categories": [],
   "settingsSchema": {},
