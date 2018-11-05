@@ -28,7 +28,7 @@ jsont.use('preffix', function(input, preffix, next) {
 
 jsont.use('toDate', function(input, format, next) {
   const date = dayjs(input);
-  let timezoneOffset = new Date(1547769600000).getTimezoneOffset();
+  let timezoneOffset = new Date(date).getTimezoneOffset();
   next(
     null,
     dayjs(date)
