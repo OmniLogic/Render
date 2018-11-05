@@ -1,0 +1,12 @@
+{
+  "env": {
+    "client": {
+      "presets": ["env", "react", "stage-0"],
+      "plugins": ["transform-class-properties"]
+    },
+    "server": {
+      "presets": [["env", { "targets": { "node": "9" } }], "react", "stage-0"],
+      "plugins": ["transform-class-properties"]
+    }
+  }
+}

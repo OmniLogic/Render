@@ -1,0 +1,38 @@
+{
+  "vendor": "omnilogic",
+  "name": "omnilogic-showcase-render-example",
+  "version": "1.0.0",
+  "title": "Omnilogic Showcase Example",
+  "description": "",
+  "mustUpdateAt": "2017-09-05",
+  "categories": [],
+  "settingsSchema": {},
+  "scripts": {
+    "start": "cross-env BABEL_ENV=client parcel index.html",
+    "build-client": "cross-env BABEL_ENV=client parcel build index.js -d dist/server/public --public-url /static",
+    "build-server": "cross-env BABEL_ENV=server parcel build server/index.js -d dist/server --public-url /dist --target=node9 && cp style.css dist/server/public && cp .env dist/server/",
+    "build-all": "npm run build-client && npm run build-server",
+    "format-code": "prettier --single-quote --write \"{app,server}/**/*.js\"",
+    "check-format": "prettier-check --single-quote \"{app,server}/**/*.js\""
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-jest": "^20.0.3",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "cross-env": "^5.2.0",
+    "parcel-bundler": "^1.9.7",
+    "prettier": "^1.7.4",
+    "prettier-check": "^2.0.0"
+  },
+  "dependencies": {
+    "dotenv": "^6.1.0",
+    "express": "^4.16.3",
+    "prop-types": "^15.6.2",
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0"
+  }
+}
