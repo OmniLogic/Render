@@ -6,7 +6,7 @@ import babel from 'rollup-plugin-babel';
 
 let url = 'http://localhost:8181/showcase';
 if (process.env.BUILD === 'production')
-  url = 'http://40.85.174.20:8080/showcase';
+  url = 'https://showcase.omnilogic.com.br/showcase';
 
 export default {
   input: 'src/index.js',

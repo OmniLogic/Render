@@ -1,7 +1,7 @@
 {
   "vendor": "omnilogic",
   "name": "omnilogic-render",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "title": "Omnilogic Render",
   "description": "Omnilogic Render",
   "main": "dist/index.js",
@@ -44,7 +44,7 @@
     "axios": "^0.18.0",
     "dayjs": "^1.7.7",
     "deep-equal": "^1.0.1",
-    "jsont": "^0.1.2",
+    "jsont": "relferreira/jsont#master",
     "prop-types": "^15.6.2",
     "react": "^16.6.0",
     "react-dom": "^16.6.0"

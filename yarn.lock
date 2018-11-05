@@ -1240,9 +1240,9 @@ json5@^0.5.1:
   version "0.5.1"
   resolved "https://registry.yarnpkg.com/json5/-/json5-0.5.1.tgz#1eade7acc012034ad84e2396767ead9fa5495821"
 
-jsont@^0.1.2:
+jsont@relferreira/jsont#master:
   version "0.1.2"
-  resolved "https://registry.yarnpkg.com/jsont/-/jsont-0.1.2.tgz#9e28c4439a20cd3469f02cdfbede9be971448dd7"
+  resolved "https://codeload.github.com/relferreira/jsont/tar.gz/554871ccc642468a1fae0c796a06ddf68bf9718e"
   dependencies:
     batch "~0.5.0"
     format-parser "~0.0.2"
