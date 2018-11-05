@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom/server';
 
 import {
   OmnilogicClient,
-  OmnilogicContext,
+  OmnilogicProvider,
   ShowcaseContainer
 } from '../../dist';
 
@@ -35,9 +35,9 @@ app.get('/', async (req, res) => {
         </head>
         <body>
           <div id="app">
-            <OmnilogicContext.Provider value={client}>
+            <OmnilogicProvider client={client}>
               <ShowcaseContainer name={process.env.SHOWCASE} />
-            </OmnilogicContext.Provider>
+            </OmnilogicProvider>
           </div>
 
           <script
@@ -58,6 +58,5 @@ app.get('/', async (req, res) => {
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
-  console.log(process.env.TOKEN);
   console.log(`Listening on port ${port}...`);
 });

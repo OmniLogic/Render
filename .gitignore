@@ -53,8 +53,6 @@ webpack_cache/
 render_build
 accounts
 
-.vscode
-
 lib
 
 entrypoints.json

@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { OmnilogicClient, OmnilogicContext, ShowcaseContainer } from '../dist';
+import { OmnilogicClient, ShowcaseContainer, OmnilogicProvider } from '../dist';
 
 const client = new OmnilogicClient({
   token: process.env.TOKEN,
@@ -11,9 +11,9 @@ const client = new OmnilogicClient({
 class App extends React.Component {
   render() {
     return (
-      <OmnilogicContext.Provider value={client}>
+      <OmnilogicProvider client={client}>
         <ShowcaseContainer name={process.env.SHOWCASE} />
-      </OmnilogicContext.Provider>
+      </OmnilogicProvider>
     );
   }
 }
