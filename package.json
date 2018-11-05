@@ -1,13 +1,17 @@
 {
   "vendor": "omnilogic",
   "name": "omnilogic-render",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "title": "Omnilogic Render",
-  "description": "",
+  "description": "Omnilogic Render",
   "main": "./dist/index.js",
   "mustUpdateAt": "2017-09-05",
   "categories": [],
   "settingsSchema": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/OmniLogic/Render.git"
+  },
   "scripts": {
     "start": "rollup -c --watch",
     "build": "rollup -c",
