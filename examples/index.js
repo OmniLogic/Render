@@ -5,7 +5,7 @@ import { OmnilogicClient, ShowcaseContainer, OmnilogicProvider } from '../dist';
 
 const client = new OmnilogicClient({
   token: process.env.TOKEN,
-  cache: window.__OMNI_STATE__
+  cache: window.__OMNILOGIC_STATE__
 });
 
 class App extends React.Component {

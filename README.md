@@ -1,40 +1,34 @@
-# Oppuz Showcase
+# Omnilogic Render
 
 ## Instalation
 
-`npm i oppuz-showcase --save`
+`npm i omnilogic-render --save`
 
 or
 
-`yarn add oppuz-showcase`
+`yarn add omnilogic-render`
 
 ## Usage
 
 ### Client-side
 
 ```
-import React from 'react';
-import ReactDOM from 'react-dom';
+import { OmnilogicClient, ShowcaseContainer, OmnilogicProvider } from 'omnilogic-render';
 
-import ShowcaseContainer, { ShowcaseContext, OppuzClient } from 'oppuz-showcase';
-
-const client = new OppuzClient({
+const client = new OmnilogicClient({
   token: process.env.TOKEN,
-  cache: window.__OMNI_STATE__
+  cache: window.__OMNILOGIC_STATE__
 });
 
 class App extends React.Component {
   render() {
     return (
-      <ShowcaseContext.Provider value={client}>
+      <OmnilogicProvider client={client}>
         <ShowcaseContainer name={process.env.SHOWCASE} />
-      </ShowcaseContext.Provider>
+      </OmnilogicProvider>
     );
   }
 }
-
-var mountNode = document.getElementById('app');
-ReactDOM.render(<App />, mountNode);
 ```
 
 ### Server-side
@@ -42,19 +36,16 @@ ReactDOM.render(<App />, mountNode);
 Express example:
 
 ```
-import express from 'express';
-import path from 'path';
-import React from 'react';
-import ReactDOM from 'react-dom/server';
+import { OmnilogicClient, OmnilogicProvider, ShowcaseContainer } from '../dist';
 
-import ShowcaseContainer, { ShowcaseContext, OppuzClient } from 'oppuz-showcase';
+require('dotenv').config({ path: path.join(__dirname, '.env') });
 
 const app = express();
 
-...
+app.use('/static', express.static(path.join(__dirname, 'public')));
 
 app.get('/', async (req, res) => {
-  const client = new OppuzClient({
+  const client = new OmnilogicClient({
     token: process.env.TOKEN
   });
   try {
@@ -64,17 +55,23 @@ app.get('/', async (req, res) => {
     const markup = ReactDOM.renderToString(
       <html>
         <head>
+          <title>Showcase example</title>
+          <meta
+            name="viewport"
+            content="user-scalable=0,initial-scale=1,minimum-scale=1,maximum-scale=1,width=device-width,height=device-height"
+          />
+          <link rel="stylesheet" href="static/style.css" />
         </head>
         <body>
           <div id="app">
-            <ShowcaseContext.Provider value={client}>
+            <OmnilogicProvider client={client}>
               <ShowcaseContainer name={process.env.SHOWCASE} />
-            </ShowcaseContext.Provider>
+            </OmnilogicProvider>
           </div>
 
           <script
             dangerouslySetInnerHTML={{
-              __html: `window.__OMNI_STATE__=${client.extractCache()};`
+              __html: `window.__OMNILOGIC_STATE__=${client.extractCache()};`
             }}
           />
           <script src="static/index.js" />
@@ -87,7 +84,6 @@ app.get('/', async (req, res) => {
     res.error();
   }
 });
-...
 ```
 
 ## Examples

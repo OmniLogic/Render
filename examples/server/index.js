@@ -42,7 +42,7 @@ app.get('/', async (req, res) => {
 
           <script
             dangerouslySetInnerHTML={{
-              __html: `window.__OMNI_STATE__=${client.extractCache()};`
+              __html: `window.__OMNILOGIC_STATE__=${client.extractCache()};`
             }}
           />
           <script src="static/index.js" />
