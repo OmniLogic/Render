@@ -19,7 +19,7 @@ or
 
 ### Client-side
 
-```
+```js
 import { OmnilogicClient, ShowcaseContainer, OmnilogicProvider } from 'omnilogic-render';
 
 // Get cache from window (SSR)
@@ -44,7 +44,7 @@ class App extends React.Component {
 
 Express example:
 
-```
+```js
 import { OmnilogicClient, OmnilogicProvider, ShowcaseContainer } from 'omnilogic-render';
 
 app.get('/', async (req, res) => {
