@@ -13,6 +13,7 @@ export class OmnilogicClient {
   }
 
   fetch(params) {
+    console.log(params);
     return axios
       .post(process.env.API, params, this.headers)
       .catch(err => console.error(err));
