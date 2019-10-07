@@ -21,8 +21,13 @@ class Showcase extends Component {
   componentDidMount() {
     const { client, name } = this.props;
     const { data } = this.state;
+
     if (!data || Object.keys(data).length === 0) {
-      client.fetchClient({}).then(resp => this.cacheData(resp.data, name));
+      let params = {
+        showcaseName: name
+      };
+
+      client.fetchClient(params).then(resp => this.cacheData(resp.data, name));
     }
   }
 
@@ -76,7 +81,7 @@ class Showcase extends Component {
     if (!data || !name) return null;
 
     const {
-      templateConfig: { type, options, recommendations, offerTemplate },
+      showcaseConfig: { type, options, recommendations, offerTemplate },
       offers,
       recommendationIdx
     } = data;
@@ -84,15 +89,14 @@ class Showcase extends Component {
     return (
       <div>
         <div className="oppuz-showcase-options">
-          {recommendations &&
-            recommendations.length > 1 && (
-              <ShowcaseTabs
-                {...options}
-                recommendations={recommendations}
-                selectedRecommendation={recommendationIdx}
-                onClick={this.handleClick}
-              />
-            )}
+          {recommendations && recommendations.length > 1 && (
+            <ShowcaseTabs
+              {...options}
+              recommendations={recommendations}
+              selectedRecommendation={recommendationIdx}
+              onClick={this.handleClick}
+            />
+          )}
           {customParams && (
             <ShowcaseFilters
               {...options}

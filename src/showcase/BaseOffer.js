@@ -45,7 +45,7 @@ class BaseOffer extends Component {
   constructor(props) {
     super(props);
     const { offerTemplate, offer } = this.props;
-    jsont.render(offerTemplate.template, offer, (err, out) => {
+    jsont.render(offerTemplate.fields, offer, (err, out) => {
       if (err) console.error(err);
       this.state = {
         offer: {
@@ -66,7 +66,7 @@ class BaseOffer extends Component {
 
   formatOffer = () => {
     const { offerTemplate, offer } = this.props;
-    jsont.render(offerTemplate.template, offer, (err, out) => {
+    jsont.render(offerTemplate.fields, offer, (err, out) => {
       if (err) console.error(err);
       this.setState({ offer: { ...out } });
     });
