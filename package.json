@@ -1,7 +1,8 @@
 {
   "vendor": "omnilogic",
   "name": "omnilogic-render",
-  "version": "0.0.6",
+  "version": "0.0.8",
+  "license": "Apache-2.0",
   "title": "Omnilogic Render",
   "description": "Omnilogic Render",
   "main": "dist/index.js",

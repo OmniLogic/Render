@@ -31,7 +31,7 @@
   "dependencies": {
     "dotenv": "^6.1.0",
     "express": "^4.16.3",
-    "omnilogic-render": "^0.0.5",
+    "omnilogic-render": "^0.0.8",
     "prop-types": "^15.6.2",
     "react": "^16.6.0",
     "react-dom": "^16.6.0"
