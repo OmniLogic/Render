@@ -19,11 +19,12 @@ jsont.use('list', function(input, next) {
 });
 
 jsont.use('suffix', (input, suffix, next) => {
-  next(null, `${input}${suffix}`);
+  next(null, input != undefined ? `${input}${suffix}` : '');
 });
 
-jsont.use('preffix', function(input, preffix, next) {
-  next(null, `${preffix}${input}`);
+jsont.use('prefix', function(input, preffix, next) {
+  if (input != undefined)
+    next(null, input != undefined ? `${preffix}${input}` : '');
 });
 
 jsont.use('toDate', function(input, format, next) {
@@ -35,6 +36,38 @@ jsont.use('toDate', function(input, format, next) {
       .add(timezoneOffset, 'minutes')
       .format(format)
   );
+});
+
+// jsont.use('setDate', function(input, format, next) {
+//   console.log(input);
+//   console.log(format);
+//   // const date = dayjs(input);
+//   // let timezoneOffset = new Date(date).getTimezoneOffset();
+//   // next(
+//   //   null,
+//   //   dayjs(date)
+//   //     .add(timezoneOffset, 'minutes')
+//   //     .format(format)
+//   // );
+// });
+
+jsont.use('toTittle', function(input, next) {
+  let title = '';
+  switch (input) {
+    case 'dynamic_package':
+      title = 'Passagem aérea + Hotel';
+      break;
+    default:
+      title = '';
+      break;
+  }
+  next(null, title);
+});
+
+jsont.use('RoundTripIndicator', function(roundTrip, next) {
+  if (roundTrip != undefined)
+    next(null, roundTrip ? 'Ida e volta' : 'Somente Ida');
+  else next(null, '');
 });
 
 class BaseOffer extends Component {
@@ -60,7 +93,13 @@ class BaseOffer extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (!deepEqual(prevProps.offerTemplate, this.props.offerTemplate))
+    // console.log(prevProps);
+    // console.log(prevState);
+    // console.log(this.props);
+    if (
+      !deepEqual(prevProps.offerTemplate, this.props.offerTemplate) //||
+      // !deepEqual(prevProps.offer.category_name, this.props.offer.category_name)
+    )
       console.log('update') || this.formatOffer();
   }
 
@@ -76,6 +115,8 @@ class BaseOffer extends Component {
     const { type, template } = offerTemplate;
     switch (type) {
       case 'default':
+        return <DefaultOffer key={offer.id} template={template} {...offer} />;
+      case 'commented_showcase':
         return <DefaultOffer key={offer.id} template={template} {...offer} />;
       default:
         return null;

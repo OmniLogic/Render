@@ -7,7 +7,7 @@ class ShowcaseTabs extends Component {
       <div className="oppuz-tabs">
         {recommendations.map((tab, idx) => (
           <span
-            key={tab.recommendationName}
+            key={tab.recommendationName + idx}
             className={
               'oppuz-tab ' +
               tab.recommendationClass +
